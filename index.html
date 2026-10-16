@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>متجر</title>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">Ala Store</span>
+    </a>
+
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="ابحث عن منتج..."/>
+    </div>
+
+    <button class="cart-pill" id="openCart" type="button">
+      🛒 <span>السلة</span>
+      <span class="badge" id="cartCount">0</span>
+    </button>
+
+    <button class="pill" id="openAdmin" type="button">لوحة التحكم</button>
+  </div>
+</header>
+
+<main class="container">
+  <!-- العروض فوق -->
+  <section class="hero">
+    <div id="sliderWrap"></div>
+  </section>
+
+  <!-- الأصناف: كل صنف مجموعة لحاله + تمرير أفقي -->
+  <section id="categoriesSection" class="section">
+    <div class="section-head">
+      <div>
+        <h2>الأصناف</h2>
+        <p>كل صنف مجموعة لحاله مع تمرير أفقي</p>
+      </div>
+      <div class="filters">
+        <label class="pill selectish">
+          <span>فرز</span>
+          <select id="sortSelect">
+            <option value="featured">الأكثر مبيعاً (Demo)</option>
+            <option value="price-asc">السعر: الأقل</option>
+            <option value="price-desc">السعر: الأعلى</option>
+            <option value="new">الأحدث</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div id="categories"></div>
+  </section>
+
+  <div class="footer">
+    واجهة متجر Demo — حفظ البيانات داخل المتصفح
+  </div>
+</main>
+
+<!-- Cart Overlay -->
+<div id="cartOverlay" class="overlay hidden"></div>
+
+<aside id="cartDrawer" class="drawer hidden" aria-hidden="true">
+  <div class="drawer-head">
+    <h3>سلة التسوق</h3>
+    <button class="icon-btn" id="closeCart" type="button">✕</button>
+  </div>
+
+  <div class="drawer-body">
+    <div id="cartItems" class="cart-items"></div>
+  </div>
+
+  <div class="drawer-foot">
+    <div class="totals">
+      <div class="row">
+        <span>المجموع</span>
+        <b id="cartTotal">0.00 $</b>
+      </div>
+    </div>
+
+    <button class="btn primary full" id="goCheckout" type="button">إكمال الدفع</button>
+    <p class="note">Demo فقط. لا يوجد تنفيذ دفع حقيقي.</p>
+  </div>
+</aside>
+
+<!-- Checkout Wizard Modal -->
+<div id="checkoutOverlay" class="overlay hidden"></div>
+<div id="checkoutModal" class="checkout-modal hidden" role="dialog" aria-modal="true"></div>
+
+<script src="./seed.js"></script>
+<script src="./app.js"></script>
+<script src="./admin.js"></script>
+</body>
+</html>
